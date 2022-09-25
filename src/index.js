@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
+const Phone = require('./database/models/phone')
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -14,8 +15,7 @@ app.get("/api/v1/phones", (req, res) => {
 app.get("/api/v1/phones/:phoneId", (req, res) => {
 })
 
-app.post("/api/v1/phones", (req, res) => {
-    console.log(req.body)
+app.post("/api/v1/phones", (req, res) => {    
     res.status(200).send({message : 'The phone has been created successfully'})
 })
 
