@@ -1,71 +1,84 @@
 const Phone = require('../database/models/phone')
+const phoneService = require('../services/phoneService')
 
-const getAllPhones = (req, res) => {
-    Phone.find({}, (error, phones) => {
-        if(error) return res.status(500).send({message : `Request error: ${error}`})
-        if(!phones) return res.status(404).send({message : `Phones not found`})
-
-        res.status(200).send({phones})
-    })
+const getAllPhones = async (req, res) => {
+    try {
+        const allPhones = await phoneService.getAllPhones()
+        res.status(200).send({data : allPhones})
+    } catch (error) {
+        res.status(error?.status || 500).send({status: 'FAILED',  message : error?.message || `Request error: ${error}`})
+    }
 }
 
-const getOnePhone = (req, res) => {
-    const phoneId = req.params.phoneId
+const getOnePhone = async (req, res) => {
+    const { params : {phoneId} } = req
 
-    Phone.findById(phoneId, (error, phone) => {
-        if(error) return res.status(500).send({message : `Request error: ${error}`})
-        if(!phone) return res.status(404).send({message : `Phone not found`})
+    try {
+        const phone = await phoneService.getOnePhone(phoneId)
+        res.status(200).send({data : phone})
+    } catch (error) {
+        res.status(error?.status || 500).send({status: 'FAILED', message : error?.message || `Request error: ${error}`})
 
-        res.status(200).send({phone})
-    })
+    }
 }
 
-const createNewPhone = (req, res) => {
+const createNewPhone = async (req, res) => {
     const { body } = req
+
+    if (
+        !body.name ||
+        !body.manufacturer ||
+        !body.description ||
+        !body.color ||
+        !body.price ||
+        !body.imageFileName ||
+        !body.screen ||
+        !body.processor ||
+        !body.ram) {
+        res.status(400).send({status: "FAILED", data: { error: "One of the following keys is missing or is empty in request body: 'name', 'manufacturer', 'description', 'color', 'price', 'imageFileName', 'screen', 'processor', 'ram'"}});
+    }
     
-    let phone = new Phone()
-    phone.name = body.name
-    phone.manufacturer = body.manufacturer
-    phone.description = body.description
-    phone.color = body.color
-    phone.price = body.price
-    phone.imageFileName = body.imageFileName
-    phone.screen = body.screen
-    phone.processor = body.processor
-    phone.ram = body.ram
+    const phoneStored = {
+        name : body.name,
+        manufacturer : body.manufacturer,
+        description : body.description,
+        color : body.color,
+        price : body.price,
+        imageFileName : body.imageFileName,
+        screen : body.screen,
+        processor : body.processor,
+        ram : body.ram
+    }
 
-    phone.save((error, phoneStored) => {
-        if(error) res.status(500).send({message: `Error saving phone on DB: ${error}`})
-        
-        res.status(200).send({phone: phoneStored, message : 'The phone has been created successfully'})
-    })
+    try {
+        const newPhone = await phoneService.createNewPhone(phoneStored)
+        res.status(201).send({data: newPhone, message : 'The phone has been created successfully'})
+    } catch (error) {
+        res.status(error?.status || 500).send({status : 'FAILED', message : error?.message || `Error saving phone on DB: ${error}`})
+    }
 }
 
-const updateOnePhone = (req, res) => {
-    const phoneId = req.params.phoneId
-    const fieldsToUpdate = req.body
+const updateOnePhone = async (req, res) => {
+    const { params : {phoneId} } = req
+    const { body } = req
 
-    Phone.findByIdAndUpdate(phoneId, fieldsToUpdate, {new: true}, (error, phoneUpdated) => {
-        if(error) return res.status(500).send({message : `Request error: ${error}`})
-        if(!phoneUpdated) return res.status(404).send({message : `Phone not found`})
-
-        res.status(200).send({phone: phoneUpdated, message : 'The phone has been updated successfully'})
-    })
+    try {
+        const updatedPhone = await phoneService.updateOnePhone(phoneId, body)
+        res.status(200).send({data: updatedPhone, message : 'The phone has been updated successfully'})
+    } catch (error) {
+        res.status(error?.status || 500).send({status : 'FAILED', message : error?.message || `Error updating phone on DB: ${error}`})
+    }
 }
 
-const deleteOnePhone = (req, res) => {
-    const phoneId = req.params.phoneId
+const deleteOnePhone = async (req, res) => {
+    const { params : {phoneId} } = req
 
-    Phone.findById(phoneId, (error, phone) => {
-        if(error) return res.status(500).send({message : `Request error: ${error}`})
-        if(!phone) return res.status(404).send({message : `Phone not found`})
-
-        phone.remove(error => {
-            if(error) return res.status(500).send({message : `Error deleting phone: ${error}`})
-
-            res.status(200).send({message: "Phone deleted successfully"})
-        })
-    })
+    try {
+        await phoneService.deleteOnePhone(phoneId)
+        res.status(200).send({message : 'The phone has been deleted successfully'})
+    } catch (error) {
+        res.status(error?.status || 500).send({status : 'FAILED', message : error?.message || `Error deleting phone on DB: ${error}`})
+    }
 }
 
 module.exports = {

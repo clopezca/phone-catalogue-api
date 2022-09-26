@@ -11,7 +11,9 @@ const PhoneSchema = Schema({
     imageFileName: String,
     screen: String,
     processor: String,
-    ram: Number
+    ram: Number,
+    createdAt: Date,
+    updatedAt: Date
 })
 
 module.exports = mongoose.model('Phone', PhoneSchema)

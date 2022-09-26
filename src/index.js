@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const app = require('./app')
+const app = require('./app') 
 const PORT = process.env.PORT || 3001
 
 mongoose.connect('mongodb://localhost:27017/catalogue', (error, res) => {
@@ -12,3 +12,4 @@ mongoose.connect('mongodb://localhost:27017/catalogue', (error, res) => {
         console.log(`API is listening on port ${PORT}`); 
     })
 })
+
