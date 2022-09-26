@@ -2,12 +2,15 @@ const DB = require('./models/phone')
 const {v4 : uuid} = require('uuid')
 const Phone = require('./models/phone')
 
-const getAllPhones = () => {
+const getAllPhones = async () => {
     try {
-        let allPhones = DB.find()
+        let allPhones = await DB.find()
         return allPhones
     } catch (error) {
-        throw { status: 500, message: error };
+        throw {
+            status: error?.status || 500,
+            message: error?.message || error
+        }    
     }
 }
 
@@ -22,27 +25,23 @@ const getOnePhone = async (phoneId) => {
         }
         return phone
     } catch (error) {
-        throw { status: error?.status || 500, message: error?.message || error };
+        throw {
+            status: error?.status || 500,
+            message: error?.message || error
+        }    
     }
 }
 
 const createNewPhone = async (newPhone) => {
-    let phoneStored = new Phone()
-        phoneStored.id = uuid()
-        phoneStored.name = newPhone.name
-        phoneStored.manufacturer = newPhone.manufacturer
-        phoneStored.description = newPhone.description
-        phoneStored.color = newPhone.color
-        phoneStored.price = newPhone.price
-        phoneStored.imageFileName = newPhone.imageFileName
-        phoneStored.screen = newPhone.screen
-        phoneStored.processor = newPhone.processor
-        phoneStored.ram = newPhone.ram
-        phoneStored.createdAt = new Date().toLocaleString('en-US', {timeZone: 'UTC'})
-        phoneStored.updatedAt = new Date().toLocaleString('en-US', {timeZone: 'UTC'})
+    let phoneStored = new Phone({
+        ...newPhone,
+        id : uuid(),
+        createdAt : new Date().toLocaleString('en-US', {timeZone: 'UTC'}),
+        updatedAt : new Date().toLocaleString('en-US', {timeZone: 'UTC'})
+    })
     
     try {
-        let newPhone = phoneStored.save()
+        let newPhone = await phoneStored.save()
         return newPhone
     } catch (error) {
         throw {
@@ -63,7 +62,10 @@ const updateOnePhone = async (phoneId, changes) => {
         }
         return updatedPhone
     } catch (error) {
-        throw { status: error?.status || 500, message: error?.message || error }
+        throw {
+            status: error?.status || 500,
+            message: error?.message || error
+        }    
     }
 }
 
@@ -78,7 +80,10 @@ const deleteOnePhone = async (phoneId) => {
         }
         return deletedPhone
     } catch (error) {
-        throw { status: error?.status || 500, message: error?.message || error }
+        throw {
+            status: error?.status || 500,
+            message: error?.message || error
+        }    
     }
 }
 

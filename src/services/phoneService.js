@@ -1,4 +1,3 @@
-const Phone = require('../database/models/phone')
 const PhoneDB = require('../database/Phone')
 
 const getAllPhones = () => {
@@ -30,7 +29,7 @@ const createNewPhone = (phone) => {
 
 const updateOnePhone = (phoneId, changes) => {
     try {
-        const updatedPhone =  PhoneDB.updateOnePhone(phoneId, changes)
+        const updatedPhone = PhoneDB.updateOnePhone(phoneId, changes)
         return updatedPhone
     } catch (error) {
         throw error

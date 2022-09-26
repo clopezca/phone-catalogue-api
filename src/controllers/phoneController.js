@@ -1,9 +1,9 @@
-const Phone = require('../database/models/phone')
 const phoneService = require('../services/phoneService')
 
 const getAllPhones = async (req, res) => {
     try {
         const allPhones = await phoneService.getAllPhones()
+        
         res.status(200).send({data : allPhones})
     } catch (error) {
         res.status(error?.status || 500).send({status: 'FAILED',  message : error?.message || `Request error: ${error}`})
@@ -15,6 +15,7 @@ const getOnePhone = async (req, res) => {
 
     try {
         const phone = await phoneService.getOnePhone(phoneId)
+        
         res.status(200).send({data : phone})
     } catch (error) {
         res.status(error?.status || 500).send({status: 'FAILED', message : error?.message || `Request error: ${error}`})
@@ -52,6 +53,7 @@ const createNewPhone = async (req, res) => {
 
     try {
         const newPhone = await phoneService.createNewPhone(phoneStored)
+        
         res.status(201).send({data: newPhone, message : 'The phone has been created successfully'})
     } catch (error) {
         res.status(error?.status || 500).send({status : 'FAILED', message : error?.message || `Error saving phone on DB: ${error}`})
@@ -64,6 +66,7 @@ const updateOnePhone = async (req, res) => {
 
     try {
         const updatedPhone = await phoneService.updateOnePhone(phoneId, body)
+        
         res.status(200).send({data: updatedPhone, message : 'The phone has been updated successfully'})
     } catch (error) {
         res.status(error?.status || 500).send({status : 'FAILED', message : error?.message || `Error updating phone on DB: ${error}`})
@@ -75,6 +78,7 @@ const deleteOnePhone = async (req, res) => {
 
     try {
         await phoneService.deleteOnePhone(phoneId)
+
         res.status(200).send({message : 'The phone has been deleted successfully'})
     } catch (error) {
         res.status(error?.status || 500).send({status : 'FAILED', message : error?.message || `Error deleting phone on DB: ${error}`})
