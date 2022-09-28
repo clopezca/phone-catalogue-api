@@ -10,8 +10,6 @@ Javascript, NodeJS, Express, MongoDB, Mongoose
 
 ### SETUP
 
-[To use the api](https://github.com/clopezca/phones-api)
-
 ### How to install
 
 > git clone git@github.com:clopezca/phones-api.git
