@@ -1,10 +1,51 @@
-const DB = require('./models/phone')
-const {v4 : uuid} = require('uuid')
 const Phone = require('./models/phone')
+const {v4 : uuid} = require('uuid')
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Phone:
+ *       type: object
+ *       properties:
+ *         id: 
+ *           type: string
+ *           example: 61dbae02-c147-4e28-863c-db7bd402b2d6
+ *         name: 
+ *           type: string
+ *           example: iPhone 7  
+ *         manufacturer:
+ *           type: string
+ *           example: Apple
+ *         color:
+ *           type: string
+ *           example: black
+ *         price:
+ *           type: number
+ *           example: 769
+ *         imageFileName:
+ *           type: string
+ *           example: iPhone_7.png
+ *         screen:
+ *           type: string
+ *           example: 4,7 inch IPS
+ *         processor:
+ *           type: string
+ *           example: A10 Fusion
+ *         ram:
+ *           type: number
+ *           example: 2
+ *         createdAt:
+ *           type: date
+ *           example: 2022-09-26T09:48:23.000Z
+ *         updatedAt: 
+ *           type: date
+ *           example: 2022-09-26T09:48:23.000Z
+ */
 
 const getAllPhones = async () => {
     try {
-        let allPhones = await DB.find()
+        const allPhones = await Phone.find({})
         return allPhones
     } catch (error) {
         throw {
@@ -16,7 +57,7 @@ const getAllPhones = async () => {
 
 const getOnePhone = async (phoneId) => {
     try {
-        let phone = await DB.findOne({id : phoneId})
+        const phone = await Phone.findOne({id : phoneId})
         if(!phone) {
             throw {
                 status: 404,
@@ -33,15 +74,15 @@ const getOnePhone = async (phoneId) => {
 }
 
 const createNewPhone = async (newPhone) => {
-    let phoneStored = new Phone({
+    const phoneStored = {
         ...newPhone,
         id : uuid(),
         createdAt : new Date().toLocaleString('en-US', {timeZone: 'UTC'}),
         updatedAt : new Date().toLocaleString('en-US', {timeZone: 'UTC'})
-    })
+    }
     
     try {
-        let newPhone = await phoneStored.save()
+        const newPhone = await Phone.create(phoneStored)
         return newPhone
     } catch (error) {
         throw {
@@ -53,7 +94,7 @@ const createNewPhone = async (newPhone) => {
 
 const updateOnePhone = async (phoneId, changes) => {
     try {
-        let updatedPhone = await Phone.findOneAndUpdate({id : phoneId}, changes, {new : true})
+        const updatedPhone = await Phone.findOneAndUpdate({id : phoneId}, changes, {new : true})
         if(!updatedPhone){
             throw {
                 status: 400,
@@ -71,7 +112,7 @@ const updateOnePhone = async (phoneId, changes) => {
 
 const deleteOnePhone = async (phoneId) => {
     try {
-        let deletedPhone = await Phone.findOneAndRemove({id : phoneId})
+        const deletedPhone = await Phone.findOneAndRemove({id : phoneId})
         if(!deletedPhone){
             throw {
                 status: 400,

@@ -1,0 +1,223 @@
+[{
+  "_id": {
+    "$oid": "6330d283970f918adaa54418"
+  },
+  "id": "9a12ec74-d081-4d22-8627-b8544bf9d6c3",
+  "name": "iPhone 700",
+  "manufacturer": "Apple",
+  "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MPT83?wid=532&hei=582&fmt=png-alpha&.v=1661464480786",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6330d2ddc8b592e93b6007e0"
+  },
+  "id": "40e20ce9-f67f-497e-a321-81396e67c9b6",
+  "name": "iPhone 200",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQD83?wid=532&hei=582&fmt=png-alpha&.v=1660803972361",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6330d30b799af4d51e5b8be5"
+  },
+  "id": "262ffc4a-9360-44da-8e3f-6c5647e855e1",
+  "name": "iPhone 2000",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/HPBJ2?wid=532&hei=582&fmt=png-alpha&.v=1601575259000",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6330d351f010cfb6ac04d1ab"
+  },
+  "id": "9296c149-c7d2-4a38-9328-1b9ed6672cac",
+  "name": "iPhone 2100",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MPU13?wid=532&hei=582&fmt=png-alpha&.v=1661793507666",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63316ba1bebea24b4818db46"
+  },
+  "id": "35e7aa21-e287-47b0-bf0a-0a0b9ee29b78",
+  "name": "iPhone 2400",
+  "manufacturer": "Apple",
+  "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "IPhone_7.png",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "633176182463b8a7bfb73910"
+  },
+  "id": "3ecf56f8-7b60-48e2-aa1d-dc46f5a9f7c5",
+  "name": "iPhone 2600",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "IPhone_7.png",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "createdAt": {
+    "$date": "2022-09-26T07:51:20Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-26T07:51:20Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63317661a4e525920715771f"
+  },
+  "id": "82c96145-438b-4fd4-805f-e7753ccca517",
+  "name": "iPhone 2700",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "IPhone_7.png",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "createdAt": {
+    "$date": "2022-09-26T07:52:33Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-26T07:52:33Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6331786d7bc5ee8bd833c32e"
+  },
+  "id": "c303be02-ce0e-4101-b356-c4389c7b7002",
+  "name": "iPhone 2800",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "IPhone_7.png",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "createdAt": {
+    "$date": "2022-09-26T08:01:17Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-26T08:01:17Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63318ff238865b9ed76f66f0"
+  },
+  "id": "92f86bba-beab-4501-9e9e-1f2e45b10d65",
+  "name": "iPhone 3100",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "IPhone_7.png",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "createdAt": {
+    "$date": "2022-09-26T09:41:38Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-26T09:41:38Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6331900ad7277811826b05c2"
+  },
+  "id": "58e7116a-c94b-430e-8bc0-753144169a7e",
+  "name": "iPhone 3100",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "IPhone_7.png",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "createdAt": {
+    "$date": "2022-09-26T09:42:02Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-26T09:42:02Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6331906cc6875ce0dd8d623b"
+  },
+  "id": "516cc538-eee7-42ed-9f10-50c89eae6559",
+  "name": "iPhone 3100",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "IPhone_7.png",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "createdAt": {
+    "$date": "2022-09-26T09:43:40Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-26T09:43:40Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "633191872265f4d1f8d4dc25"
+  },
+  "id": "c0e371e2-7610-4f52-a371-e0af8df0955e",
+  "name": "iPhone 3100",
+  "manufacturer": "Apple",
+  "description": "lorem ipsum dolor sit amet consectetur.",
+  "color": "black",
+  "price": 769,
+  "imageFileName": "IPhone_7.png",
+  "screen": "4,7 inch IPS",
+  "processor": "A10 Fusion",
+  "ram": 2,
+  "createdAt": {
+    "$date": "2022-09-26T09:48:23Z"
+  },
+  "updatedAt": {
+    "$date": "2022-09-26T09:48:23Z"
+  },
+  "__v": 0
+}]

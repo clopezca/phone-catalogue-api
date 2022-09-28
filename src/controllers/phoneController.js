@@ -27,6 +27,7 @@ const createNewPhone = async (req, res) => {
     const { body } = req
 
     if (
+        Object.keys(body).length === 0 ||
         !body.name ||
         !body.manufacturer ||
         !body.description ||
@@ -37,6 +38,7 @@ const createNewPhone = async (req, res) => {
         !body.processor ||
         !body.ram) {
         res.status(400).send({status: "FAILED", data: { error: "One of the following keys is missing or is empty in request body: 'name', 'manufacturer', 'description', 'color', 'price', 'imageFileName', 'screen', 'processor', 'ram'"}});
+        return
     }
     
     const phoneStored = {
